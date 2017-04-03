@@ -1,0 +1,10 @@
+// Use as-is
+.masthead {
+  color: @brand-primary;
+}
+
+// Reassigned variables in Less
+@alert-message-background: @brand-info;
+.alert {
+  background-color: @alert-message-background;
+}
