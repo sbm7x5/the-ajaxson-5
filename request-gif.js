@@ -24,7 +24,7 @@ var verify = $("input[name=verify]").val(); // retrieve value in verify field
 
 if (parseInt(verify) != 5) {
     var error = "No gifs for you.";
-    $("#feedback").text(error).attr('hidden', false).addClass('text-danger');
+    $("#feedback").text(error).addClass('text-danger');
     $("#verifySection").addClass("has-danger");
 } else {
 console.log("Search query is " + searchQuery);
@@ -51,8 +51,7 @@ $.ajax({
         // TODO -- completed
         // 1. set the source attribute of our image to the image_url of the GIF -- COMPLETED
         // 2. hide the feedback message and display the image -- COMPLETED
-        $('#gif').attr('src', response.data.image_url).attr('hidden', false).addClass("img-responsive");
-        $('#feedback').attr('hidden', true);
+        $('#gif').attr('src', response.data.image_url);
         setGifLoadedStatus(true);
 
         //GETTING AN ERROR--- API PROBLEM
@@ -70,7 +69,8 @@ $.ajax({
 
 // TODO -- COMPLETED
 // give the user a "Loading..." message while they wait
-$("#feedback").text("Loading...").attr('hidden', false);
+$('#feedback').text("Loading...");
+setGifLoadedStatus(false);
 $("#inputSection").addClass("has-success");
 $("#verifySection").addClass("has-success");
 
